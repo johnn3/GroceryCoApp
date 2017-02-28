@@ -9,14 +9,17 @@ namespace GroceryCoApp
     {
         public static void Main(string[] args)
         {
-            
-            while (true)
-            {
-                //get file input by prompt
-                if (true){};
-                    
+            string filepath;
 
-            }
+            Console.WriteLine("Welcome to GroceryCo self-checkout.");
+            Console.WriteLine("Please enter the filepath of your grocery list: ");
+            filepath = Console.ReadLine();
+
+            //while (true)
+            //{    
+            //}
+
+            Console.ReadKey();
         }
     }
 }
