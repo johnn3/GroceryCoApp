@@ -6,3 +6,5 @@ Banana
 Apple
 Apple
 Orange
+aPplE
+Oran ge

@@ -9,10 +9,12 @@ namespace GroceryCoApp
     {
         public static void Main(string[] args)
         {
+            
             while (true)
             {
                 //get file input by prompt
                 if (true){};
+                    
 
             }
         }
