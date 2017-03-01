@@ -14,3 +14,4 @@ Assumptions:
   -The items that are requested are already inside the kiosk system
   -Generic items will be requested. Brand names are non-essential for the exercise.
   -Case sensitivity is not an issue as well, all items will be capitalized for comparison purposes.
+  -"Free" items would fall into sales, discounts or promotions. 
