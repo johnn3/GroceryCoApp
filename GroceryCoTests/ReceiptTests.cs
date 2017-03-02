@@ -14,76 +14,119 @@ namespace ConsoleApplication1.Tests
         [Test()]
         public void ReceiptTest()
         {
-            Receipt test = new Receipt();
-            Assert.IsNotNull(test);
+            Dictionary<string, decimal> sample =
+    new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog catalog = new PriceCatalog(sample);
+            Receipt model = new Receipt(catalog);
+            Assert.IsNotNull(model);
         }
 
         [Test()]
         public void CheckReceiptItemTestWithAddOrUpdate()
         {
-            Receipt test = new Receipt();
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("ORANGE", 0.70m);
-            Assert.AreEqual(test.CheckReceiptItem("APPLE"), true);
-            Assert.AreEqual(test.CheckReceiptItem("ApPLE"), true);
+            Dictionary<string, decimal> sample =
+                new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog catalog = new PriceCatalog(sample);
+            Receipt model = new Receipt(catalog);
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("ORANGE");
+            Assert.AreEqual(model.CheckReceiptItem("APPLE"), true);
+            Assert.AreEqual(model.CheckReceiptItem("ApPLE"), true);
         }
 
         [Test()]
         public void GetQuantityOfItemTest()
         {
-            Receipt test = new Receipt();
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("ORANGE", 0.70m);
-            Assert.AreEqual(test.GetQuantityOfItem("APPLE"), 2);
-            Assert.AreEqual(test.GetQuantityOfItem("ApPLE"), 2);
-            Assert.AreEqual(test.GetQuantityOfItem("Orange"), 1);
-            Assert.AreEqual(test.GetQuantityOfItem("Orange?"), 0);
+            Dictionary<string, decimal> sample =
+                new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog catalog = new PriceCatalog(sample);
+            Receipt model = new Receipt(catalog);
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("ORANGE");
+            Assert.AreEqual(model.GetQuantityOfItem("APPLE"), 2);
+            Assert.AreEqual(model.GetQuantityOfItem("ApPLE"), 2);
+            Assert.AreEqual(model.GetQuantityOfItem("Orange"), 1);
+            Assert.AreEqual(model.GetQuantityOfItem("Orange?"), 0);
         }
 
         [Test()]
         public void GetPriceOfItemTest()
         {
-            Receipt test = new Receipt();
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("ORANGE", 0.70m);
-            Assert.AreEqual(test.GetPriceOfItem("APPLE"), 0.50m);
-            Assert.AreEqual(test.GetPriceOfItem("OrangE"), 0.70m);
-            Assert.AreEqual(test.GetPriceOfItem("Orange?"), 0.00m);
+            Dictionary<string, decimal> sample =
+                new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog catalog = new PriceCatalog(sample);
+            Receipt model = new Receipt(catalog);
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("ORANGE");
+            Assert.AreEqual(model.GetPriceOfItem("APPLE"), 0.50m);
+            Assert.AreEqual(model.GetPriceOfItem("OrangE"), 0.70m);
+            Assert.AreEqual(model.GetPriceOfItem("Orange?"), 0.00m);
         }
 
         [Test]
         public void GetTotalTest()
         {
-            Receipt test = new Receipt();
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            Assert.AreEqual(test.GetTotal(), 1.00m);
-            test.AddOrUpdateItem("ORANGE", 0.70m);
-            Assert.AreEqual(test.GetTotal(), 1.70m);
+            Dictionary<string, decimal> sample =
+                new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog catalog = new PriceCatalog(sample);
+            Receipt model = new Receipt(catalog);
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("APPLE");
+            Assert.AreEqual(model.GetTotal(), 1.00m);
+            model.AddOrUpdateItem("ORANGE");
+            Assert.AreEqual(model.GetTotal(), 1.70m);
         }
 
         [Test()]
         public void GetTotalPriceOfItemTest()
         {
-            Receipt test = new Receipt();
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("ORANGE", 0.70m);
-            Assert.AreEqual(test.GetTotalPriceOfItem("APPLE"), 1.00m);
-            Assert.AreEqual(test.GetTotalPriceOfItem("ApPLE"), 1.00m);
-            Assert.AreEqual(test.GetTotalPriceOfItem("OrangE"), 0.70m);
-            Assert.AreEqual(test.GetTotalPriceOfItem("Orange?"), 0.00m);
+            Dictionary<string, decimal> sample =
+                new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog catalog = new PriceCatalog(sample);
+            Receipt model = new Receipt(catalog);
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("ORANGE");
+            Assert.AreEqual(model.GetTotalPriceOfItem("APPLE"), 1.00m);
+            Assert.AreEqual(model.GetTotalPriceOfItem("ApPLE"), 1.00m);
+            Assert.AreEqual(model.GetTotalPriceOfItem("OrangE"), 0.70m);
+            Assert.AreEqual(model.GetTotalPriceOfItem("Orange?"), 0.00m);
         }
 
         [Test()]
         public void GetReceiptItemNamesTest()
         {
-            Receipt test = new Receipt();
-            test.AddOrUpdateItem("APPLE", 0.50m);
-            test.AddOrUpdateItem("ORANGE", 0.70m);
-            List<string> testOut = test.GetReceiptItemNames();
+            Dictionary<string, decimal> sample =
+                new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog catalog = new PriceCatalog(sample);
+            Receipt model = new Receipt(catalog);
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("APPLE");
+            model.AddOrUpdateItem("ORANGE");
+            List<string> testOut = model.GetReceiptItemNames();
             Assert.IsNotNull(testOut);
             Assert.AreEqual(testOut[0], "APPLE");
         }

@@ -23,9 +23,9 @@ namespace ConsoleApplication1
         }
 
 
-        public void AddOrUpdateReceipt(string name, decimal price)
+        public void AddOrUpdateReceipt(string name)
         {
-            _model.AddOrUpdateItem(name, price);
+            _model.AddOrUpdateItem(name);
         }
 
 

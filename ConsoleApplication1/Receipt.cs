@@ -9,9 +9,11 @@ namespace ConsoleApplication1
     public class Receipt
     {
         private SortedDictionary<string, ReceiptItem> _receipt;
+        private PriceCatalog _catalog;
         private decimal _total;
-        public Receipt()
+        public Receipt(PriceCatalog catalog)
         {
+            _catalog = catalog;
             _receipt = new SortedDictionary<string, ReceiptItem>();
             _total = 0.00m;
         }
@@ -21,29 +23,35 @@ namespace ConsoleApplication1
             return _receipt.ContainsKey(name.ToUpper());
         }
 
-        public void AddOrUpdateItem(string name, decimal price)
+        public void AddOrUpdateItem(string name)
         {
             ReceiptItem value;
+            name = name.ToUpper();
 
-            if (_receipt.TryGetValue(name.ToUpper(), out value))
+            if (_catalog.CheckStock(name))
             {
-                _receipt[name].AddOneToQuantityAndCost();
-            }
+                if (_receipt.TryGetValue(name, out value))
 
-            else
-            {
-                _receipt.Add(name, new ReceiptItem(name.ToUpper(), price));
+                {
+                    _receipt[name].AddOneToQuantityAndCost();
+                }
+
+                else
+                {
+                    _receipt.Add(name, new ReceiptItem(name, _catalog.GetItemPrice(name)));
+                }
+                _total = _total + _catalog.GetItemPrice(name);
             }
-            _total = _total + price;
         }
 
         public int GetQuantityOfItem(string name)
         {
             ReceiptItem value;
+            name = name.ToUpper();
 
-            if (_receipt.TryGetValue(name.ToUpper(), out value))
+            if (_receipt.TryGetValue(name, out value))
             {
-                return _receipt[name.ToUpper()].GetQuantity();
+                return _receipt[name].GetQuantity();
             }
 
             else
@@ -55,10 +63,11 @@ namespace ConsoleApplication1
         public decimal GetPriceOfItem(string name)
         {
             ReceiptItem value;
+            name = name.ToUpper();
 
-            if (_receipt.TryGetValue(name.ToUpper(), out value))
+            if (_receipt.TryGetValue(name, out value))
             {
-                return _receipt[name.ToUpper()].GetPrice();
+                return _receipt[name].GetPrice();
             }
 
             else
@@ -75,10 +84,11 @@ namespace ConsoleApplication1
         public decimal GetTotalPriceOfItem(string name)
         {
             ReceiptItem value;
+            name = name.ToUpper();
 
-            if (_receipt.TryGetValue(name.ToUpper(), out value))
+            if (_receipt.TryGetValue(name, out value))
             {
-                return _receipt[name.ToUpper()].GetTotalPrice();
+                return _receipt[name].GetTotalPrice();
             }
 
             else
