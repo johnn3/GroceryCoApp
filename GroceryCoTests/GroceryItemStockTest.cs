@@ -1,9 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
 namespace GroceryCoTests
 {
     [TestClass]
-    public class UnitTest1
+    public class GroceryItemStockTest
     {
         [TestMethod]
         public void TestMethod1()

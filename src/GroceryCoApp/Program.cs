@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GroceryCoApp
 {
@@ -20,6 +18,17 @@ namespace GroceryCoApp
             //}
 
             Console.ReadKey();
+        }
+
+        private static GroceryItemStock GetGroceryItemStock()
+        {
+            Dictionary<string, decimal> itemsAndPrices = 
+                new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            GroceryItemStock groceryItemStock = new GroceryItemStock(itemsAndPrices);
+            return groceryItemStock;
         }
     }
 }

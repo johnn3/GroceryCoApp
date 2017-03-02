@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GroceryCoApp": {
+      "commandName": "GroceryCoApp",
+      "environmentVariables": {
+        "Key": "Value"
+      }
+    }
+  }
+}
