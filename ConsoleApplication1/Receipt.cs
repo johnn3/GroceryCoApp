@@ -40,7 +40,7 @@ namespace ConsoleApplication1
 
             if (_receipt.TryGetValue(name.ToUpper(), out value))
             {
-                return _receipt[name].GetQuantity();
+                return _receipt[name.ToUpper()].GetQuantity();
             }
 
             else
@@ -55,7 +55,7 @@ namespace ConsoleApplication1
 
             if (_receipt.TryGetValue(name.ToUpper(), out value))
             {
-                return _receipt[name].GetPrice();
+                return _receipt[name.ToUpper()].GetPrice();
             }
 
             else
@@ -70,7 +70,7 @@ namespace ConsoleApplication1
 
             if (_receipt.TryGetValue(name.ToUpper(), out value))
             {
-                return _receipt[name].GetTotalPrice();
+                return _receipt[name.ToUpper()].GetTotalPrice();
             }
 
             else
