@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class ReceiptController
+    public class ReceiptController
     {
         private Receipt _model;
         private ReceiptView _view;

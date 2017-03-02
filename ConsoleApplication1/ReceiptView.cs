@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class ReceiptView
+    public class ReceiptView
     {
         public ReceiptView() { }
 
