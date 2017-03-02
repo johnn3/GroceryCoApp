@@ -26,14 +26,14 @@ namespace ConsoleApplication1
             return _name;
         }
 
-        public decimal GetPrice()
-        {
-            return _price;
-        }
-
         public int GetQuantity()
         {
             return _quantity;
+        }
+
+        public decimal GetTotalPrice()
+        {
+            return _total;
         }
 
         public void AddOneToQuantityAndCost()

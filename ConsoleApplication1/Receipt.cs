@@ -8,9 +8,65 @@ namespace ConsoleApplication1
 {
     class Receipt
     {
-        public Receipt(string path)
+        private SortedDictionary<string, ReceiptItem> _receipt;
+        public Receipt()
         {
+            _receipt = new SortedDictionary<string, ReceiptItem>();
+        }
 
+        public bool CheckReceiptItem(string name)
+        {
+            return _receipt.ContainsKey(name);
+        }
+
+        public void AddOrUpdateItem(string name, decimal price)
+        {
+            ReceiptItem value;
+
+            if (_receipt.TryGetValue(name, out value))
+            {
+                _receipt[name].AddOneToQuantityAndCost();
+            }
+
+            else
+            {
+                _receipt.Add(name, new ReceiptItem(name, price));
+            }
+        }
+
+        public int GetQuantityOfItem(string name)
+        {
+            ReceiptItem value;
+
+            if (_receipt.TryGetValue(name, out value))
+            {
+                return _receipt[name].GetQuantity();
+            }
+
+            else
+            {
+               return 0;
+            }
+        }
+
+        public decimal GetTotalPriceOfItem(string name)
+        {
+            ReceiptItem value;
+
+            if (_receipt.TryGetValue(name, out value))
+            {
+                return _receipt[name].GetTotalPrice();
+            }
+
+            else
+            {
+                return 0.0m;
+            }
+        }
+
+        public SortedDictionary<string, ReceiptItem> GetReceipt()
+        {
+            return _receipt;
         }
     }
 }

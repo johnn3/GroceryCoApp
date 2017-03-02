@@ -29,7 +29,9 @@ namespace ConsoleApplication1
                 new Dictionary<string, decimal>(){
                     { "APPLE", 0.50m },
                     { "ORANGE", 0.70m },
-                    { "BANANA", 0.82m } };
+                    { "BANANA", 0.82m }
+                };
+
             GroceryItemStock groceryItemStock = new GroceryItemStock(itemsAndPrices);
             return groceryItemStock;
         }
