@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ConsoleApplication1
 {
-    internal class GroceryItemStock
+    public class GroceryItemStock
     {
         private Dictionary<string, decimal> _itemStock;
 
