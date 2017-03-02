@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "C:\\Users\\Ni\\Documents\\Visual Studio 2015\\Projects\\GroceryCoApp\\packages\\NUnit.3.6.1\\lib\\net45\\nunit.framework.dll"
+      }
+    }
+  }
+}

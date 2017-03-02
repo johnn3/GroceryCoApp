@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "description": "GroceryCoApp Console Application",
   "authors": [ "Ni" ],
@@ -11,6 +11,7 @@
   },
 
   "dependencies": {
+    "NUnit3TestAdapter": "3.7.0"
   },
 
   "commands": {
@@ -18,7 +19,11 @@
   },
 
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "dependencies": {
+        "nunit.framework": "1.0.0-*"
+      }
+    },
     "dnxcore50": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
