@@ -49,19 +49,24 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="PriceCatalogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GroceryItemStockTest.cs" />
+    <Compile Include="ReceiptItemTests.cs" />
+    <Compile Include="ReceiptTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleApplication1\GroceryCo.csproj">
+      <Project>{c92909c7-6582-4471-96b6-f7a723dcef6a}</Project>
+      <Name>GroceryCo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
