@@ -25,14 +25,4 @@ namespace ConsoleApplication1.Tests
             Assert.Fail();
         }
     }
-
-    [TestFixture()]
-    public class UnitTest1
-    {
-        [Test()]
-        public void GroceryItemStockTest()
-        {
-            Assert.Fail();
-        }
-    }
 }
