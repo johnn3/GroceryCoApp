@@ -16,5 +16,41 @@ namespace ConsoleApplication1
             _model = model;
             _view = view;
         }
+
+        public bool CheckReceiptForItem(string name)
+        {
+            return _model.CheckReceiptItem(name);
+        }
+
+
+        public void AddOrUpdateReceipt(string name, decimal price)
+        {
+            _model.AddOrUpdateItem(name, price);
+        }
+
+
+        public int GetQuantityOfReceiptItem(string name)
+        {
+            return _model.GetQuantityOfItem(name);
+        }
+
+
+        public decimal GetPriceOfReceiptItem(string name)
+        {
+            return _model.GetPriceOfItem(name);
+        }
+
+
+        public decimal GetReceiptTotalPriceOfItem(string name)
+        {
+            return _model.GetTotalPriceOfItem(name);
+        }
+
+
+        public List<string> GetReceiptItemNames()
+        {
+            return _model.GetReceiptItemNames();
+        }
+
     }
 }

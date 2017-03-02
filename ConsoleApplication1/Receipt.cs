@@ -9,9 +9,11 @@ namespace ConsoleApplication1
     public class Receipt
     {
         private SortedDictionary<string, ReceiptItem> _receipt;
+        private decimal _total;
         public Receipt()
         {
             _receipt = new SortedDictionary<string, ReceiptItem>();
+            _total = 0.00m;
         }
 
         public bool CheckReceiptItem(string name)
@@ -32,6 +34,7 @@ namespace ConsoleApplication1
             {
                 _receipt.Add(name, new ReceiptItem(name.ToUpper(), price));
             }
+            _total = _receipt[name].GetPrice();
         }
 
         public int GetQuantityOfItem(string name)
@@ -62,6 +65,11 @@ namespace ConsoleApplication1
             {
                 return 0.0m;
             }
+        }
+
+        public decimal GetTotal()
+        {
+            return _total;
         }
 
         public decimal GetTotalPriceOfItem(string name)

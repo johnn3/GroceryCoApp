@@ -10,9 +10,10 @@ namespace ConsoleApplication1
     {
         public ReceiptView() { }
 
-        public void PrintReceiptDetails(Receipt receipt)
+        public void PrintReceiptItemDetail(int quantity, string name, decimal price)
         {
-            Console.WriteLine();
+            Console.WriteLine(String.Format("{0,4}", quantity.ToString()) 
+                +" "+ String.Format("{0,8}", name)+ " "+ String.Format("{0,-5}",price.ToString()));
         }
     }
 }

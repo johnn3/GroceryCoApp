@@ -53,6 +53,17 @@ namespace ConsoleApplication1.Tests
             Assert.AreEqual(test.GetPriceOfItem("Orange?"), 0.00m);
         }
 
+        [Test]
+        public void GetTotalTest()
+        {
+            Receipt test = new Receipt();
+            test.AddOrUpdateItem("APPLE", 0.50m);
+            test.AddOrUpdateItem("APPLE", 0.50m);
+            Assert.AreEqual(test.GetTotal(), 1.00m);
+            test.AddOrUpdateItem("ORANGE", 0.70m);
+            Assert.AreEqual(test.GetTotal(), 1.70m);
+        }
+
         [Test()]
         public void GetTotalPriceOfItemTest()
         {
