@@ -16,14 +16,14 @@ namespace ConsoleApplication1
 
         public bool CheckReceiptItem(string name)
         {
-            return _receipt.ContainsKey(name);
+            return _receipt.ContainsKey(name.ToUpper());
         }
 
         public void AddOrUpdateItem(string name, decimal price)
         {
             ReceiptItem value;
 
-            if (_receipt.TryGetValue(name, out value))
+            if (_receipt.TryGetValue(name.ToUpper(), out value))
             {
                 _receipt[name].AddOneToQuantityAndCost();
             }
@@ -38,7 +38,7 @@ namespace ConsoleApplication1
         {
             ReceiptItem value;
 
-            if (_receipt.TryGetValue(name, out value))
+            if (_receipt.TryGetValue(name.ToUpper(), out value))
             {
                 return _receipt[name].GetQuantity();
             }
@@ -53,7 +53,7 @@ namespace ConsoleApplication1
         {
             ReceiptItem value;
 
-            if (_receipt.TryGetValue(name, out value))
+            if (_receipt.TryGetValue(name.ToUpper(), out value))
             {
                 return _receipt[name].GetPrice();
             }
@@ -68,7 +68,7 @@ namespace ConsoleApplication1
         {
             ReceiptItem value;
 
-            if (_receipt.TryGetValue(name, out value))
+            if (_receipt.TryGetValue(name.ToUpper(), out value))
             {
                 return _receipt[name].GetTotalPrice();
             }
