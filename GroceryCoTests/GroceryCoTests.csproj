@@ -54,9 +54,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="GroceryItemStockTests.cs" />
+    <Compile Include="PriceCatalogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReceiptItemTests.cs" />
+    <Compile Include="ReceiptTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

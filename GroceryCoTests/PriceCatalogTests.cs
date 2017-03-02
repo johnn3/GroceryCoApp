@@ -6,17 +6,17 @@ using System.Collections.Generic;
 namespace ConsoleApplication1.Tests
 {
     [TestFixture()]
-    public class GroceryItemStockTests
+    public class PriceCatalogTests
     {
         [Test()]
-        public void GroceryItemStockTest()
+        public void PriceCatalogTest()
         {
             Dictionary<string, decimal> sample =
     new Dictionary<string, decimal>(){
                     { "APPLE", 0.50m },
                     { "ORANGE", 0.70m },
                     { "BANANA", 0.82m } };
-            GroceryItemStock test = new GroceryItemStock(sample);
+            PriceCatalog test = new PriceCatalog(sample);
             Assert.IsNotNull(test);
         }
 
@@ -28,7 +28,7 @@ new Dictionary<string, decimal>(){
                     { "APPLE", 0.50m },
                     { "ORANGE", 0.70m },
                     { "BANANA", 0.82m } };
-            GroceryItemStock test = new GroceryItemStock(sample);
+            PriceCatalog test = new PriceCatalog(sample);
             Assert.AreEqual(test.CheckStock("APPLE"), true);
             Assert.AreEqual(true, test.CheckStock("APPLE"));
             Assert.AreEqual(false, test.CheckStock("PINEAPPLE"));
@@ -43,7 +43,7 @@ new Dictionary<string, decimal>(){
                     { "APPLE", 0.50m },
                     { "ORANGE", 0.70m },
                     { "BANANA", 0.82m } };
-            GroceryItemStock test = new GroceryItemStock(sample);
+            PriceCatalog test = new PriceCatalog(sample);
             Assert.AreEqual(test.GetItemPrice("APPLE"), 0.50m);
             Assert.AreEqual(0.50m, test.GetItemPrice("APPLE"));
             Assert.AreEqual(0.00m, test.GetItemPrice("PINEAPPLE"));

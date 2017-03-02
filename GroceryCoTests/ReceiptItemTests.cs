@@ -29,6 +29,14 @@ namespace ConsoleApplication1.Tests
         }
 
         [Test()]
+        public void GetPriceTest()
+        {
+            ReceiptItem testItem = new ReceiptItem("Orange", 0.70m);
+            Assert.AreEqual(testItem.GetTotalPrice(), 0.70m);
+            Assert.AreEqual(0.70m, testItem.GetTotalPrice());
+        }
+
+        [Test()]
         public void GetTotalPriceTest()
         {
             ReceiptItem testItem = new ReceiptItem("Orange", 0.70m);

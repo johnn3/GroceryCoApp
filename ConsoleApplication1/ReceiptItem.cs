@@ -16,9 +16,8 @@ namespace ConsoleApplication1
         public ReceiptItem(string name, decimal price)
         {
             _name = name.ToUpper();
-            _price = price;
+            _total =_price = price;
             _quantity = 1;
-            _total = 0.00m;
         }
 
         public string GetName()
@@ -29,6 +28,11 @@ namespace ConsoleApplication1
         public int GetQuantity()
         {
             return _quantity;
+        }
+
+        public decimal GetPrice()
+        {
+            return _price;
         }
 
         public decimal GetTotalPrice()

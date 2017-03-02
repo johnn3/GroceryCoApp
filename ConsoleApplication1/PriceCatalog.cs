@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace ConsoleApplication1
 {
-    public class GroceryItemStock
+    public class PriceCatalog
     {
         private Dictionary<string, decimal> _itemStock;
 
-        public GroceryItemStock(Dictionary<string, decimal> itemStock)
+        public PriceCatalog(Dictionary<string, decimal> itemStock)
         {
             _itemStock = itemStock;
         }

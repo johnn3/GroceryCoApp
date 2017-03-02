@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class Receipt
+    public class Receipt
     {
         private SortedDictionary<string, ReceiptItem> _receipt;
         public Receipt()
@@ -30,7 +30,7 @@ namespace ConsoleApplication1
 
             else
             {
-                _receipt.Add(name, new ReceiptItem(name, price));
+                _receipt.Add(name, new ReceiptItem(name.ToUpper(), price));
             }
         }
 
@@ -49,6 +49,21 @@ namespace ConsoleApplication1
             }
         }
 
+        public decimal GetPriceOfItem(string name)
+        {
+            ReceiptItem value;
+
+            if (_receipt.TryGetValue(name, out value))
+            {
+                return _receipt[name].GetPrice();
+            }
+
+            else
+            {
+                return 0.0m;
+            }
+        }
+
         public decimal GetTotalPriceOfItem(string name)
         {
             ReceiptItem value;
@@ -64,9 +79,9 @@ namespace ConsoleApplication1
             }
         }
 
-        public SortedDictionary<string, ReceiptItem> GetReceipt()
+        public List<string> GetReceiptItemNames()
         {
-            return _receipt;
+            return _receipt.Keys.ToList();
         }
     }
 }

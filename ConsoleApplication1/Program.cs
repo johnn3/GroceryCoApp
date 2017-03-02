@@ -23,7 +23,7 @@ namespace ConsoleApplication1
             Console.ReadKey();
         }
 
-        private static GroceryItemStock GetGroceryItemStock()
+        private static PriceCatalog GetPriceCatalog()
         {
             Dictionary<string, decimal> itemsAndPrices =
                 new Dictionary<string, decimal>(){
@@ -32,8 +32,8 @@ namespace ConsoleApplication1
                     { "BANANA", 0.82m }
                 };
 
-            GroceryItemStock groceryItemStock = new GroceryItemStock(itemsAndPrices);
-            return groceryItemStock;
+            PriceCatalog PriceCatalog = new PriceCatalog(itemsAndPrices);
+            return PriceCatalog;
         }
     }
 }
