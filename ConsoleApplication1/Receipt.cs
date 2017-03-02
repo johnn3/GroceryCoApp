@@ -8,7 +8,6 @@ namespace ConsoleApplication1
 {
     class Receipt
     {
-        private 
         public Receipt(string path)
         {
 

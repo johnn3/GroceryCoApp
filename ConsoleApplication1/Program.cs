@@ -33,7 +33,5 @@ namespace ConsoleApplication1
             GroceryItemStock groceryItemStock = new GroceryItemStock(itemsAndPrices);
             return groceryItemStock;
         }
-
-        private 
     }
 }

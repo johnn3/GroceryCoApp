@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class ReceiptItem
+    public class ReceiptItem
     {
         private string _name;
         private int _quantity;
         private decimal _price;
-        private decimal _total = 0.00m;
+        private decimal _total;
 
-        public ReceiptItem(string name, int quantity, decimal price)
+        public ReceiptItem(string name, decimal price)
         {
-            _name = name;
+            _name = name.ToUpper();
             _price = price;
-            _quantity = quantity;
+            _quantity = 1;
+            _total = 0.00m;
         }
 
         public string GetName()
