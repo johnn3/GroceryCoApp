@@ -28,5 +28,15 @@ namespace ConsoleApplication1
 
             return 0.00m;
         }
+
+        public void SetItemPrice(string item, decimal amount)
+        {
+            decimal value;
+
+            if (_itemStock.TryGetValue(item, out value))
+            {
+                _itemStock[item.ToUpper()] = amount;
+            }
+        }
     }
 }

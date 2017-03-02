@@ -46,10 +46,20 @@ namespace ConsoleApplication1
             return _model.GetTotalPriceOfItem(name);
         }
 
-
         public List<string> GetReceiptItemNames()
         {
             return _model.GetReceiptItemNames();
+        }
+
+        public void PrintReceiptItem(string name)
+        {
+            _view.PrintReceiptItemDetail(_model.GetQuantityOfItem(name),
+                name, _model.GetPriceOfItem(name));
+        }
+
+        public void PrintReceiptTotal()
+        {
+            _view.PrintReceiptEndTotal(_model.GetTotal());
         }
 
     }

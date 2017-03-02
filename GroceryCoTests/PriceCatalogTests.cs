@@ -49,5 +49,17 @@ new Dictionary<string, decimal>(){
             Assert.AreEqual(0.00m, test.GetItemPrice("PINEAPPLE"));
             Assert.AreEqual(test.GetItemPrice("PINEAPPLE"), 0.00m);
         }
+
+        public void SetItemPriceTest()
+        {
+            Dictionary<string, decimal> sample =
+    new Dictionary<string, decimal>(){
+                    { "APPLE", 0.50m },
+                    { "ORANGE", 0.70m },
+                    { "BANANA", 0.82m } };
+            PriceCatalog test = new PriceCatalog(sample);
+            test.SetItemPrice("APPLE", 0.60m);
+            Assert.AreEqual(test.GetItemPrice("APPLE"), 0.60m);
+        }
     }
 }

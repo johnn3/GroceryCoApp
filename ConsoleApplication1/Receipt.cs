@@ -34,7 +34,7 @@ namespace ConsoleApplication1
             {
                 _receipt.Add(name, new ReceiptItem(name.ToUpper(), price));
             }
-            _total = _receipt[name].GetPrice();
+            _total = _total + price;
         }
 
         public int GetQuantityOfItem(string name)
