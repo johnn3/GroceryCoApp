@@ -67,7 +67,7 @@ namespace ConsoleApplication1
             List<string> keys = this.GetReceiptItemNames();
             foreach (string key in keys)
             {
-                this.PrintReceiptItem(key);
+                PrintReceiptItem(key);
             }
 
             this.PrintReceiptTotal();

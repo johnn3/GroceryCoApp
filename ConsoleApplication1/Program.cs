@@ -28,12 +28,11 @@ namespace ConsoleApplication1
             ReceiptView view = new ReceiptView();
             ReceiptController controller = new ReceiptController(view, model);
 
-            using (StreamReader sr = new StreamReader(filepath))
+            string[] lines = System.IO.File.ReadAllLines(filepath);
+            for (int i = 0; i < lines.Length; i++)
             {
-                while (sr.Peek() >= 0)
-                {
-                    controller.AddOrUpdateReceipt(sr.ReadLine().Trim().ToUpper());
-                }
+                string line = lines[i];
+                controller.AddOrUpdateReceipt(line.Trim());
             }
             controller.PrintReceipt();
         }
