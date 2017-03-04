@@ -33,7 +33,7 @@ namespace ConsoleApplication1
                 if (_receipt.TryGetValue(name, out value))
 
                 {
-                    _receipt[name].AddOneToQuantityAndCost();
+                    value.AddOneToQuantityAndCost();
                 }
 
                 else
@@ -51,7 +51,7 @@ namespace ConsoleApplication1
 
             if (_receipt.TryGetValue(name, out value))
             {
-                return _receipt[name].GetQuantity();
+                return value.GetQuantity();
             }
 
             else
@@ -67,7 +67,7 @@ namespace ConsoleApplication1
 
             if (_receipt.TryGetValue(name, out value))
             {
-                return _receipt[name].GetPrice();
+                return value.GetPrice();
             }
 
             else
@@ -88,7 +88,7 @@ namespace ConsoleApplication1
 
             if (_receipt.TryGetValue(name, out value))
             {
-                return _receipt[name].GetTotalPrice();
+                return value.GetTotalPrice();
             }
 
             else

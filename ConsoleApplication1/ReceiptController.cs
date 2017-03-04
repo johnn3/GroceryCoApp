@@ -62,5 +62,15 @@ namespace ConsoleApplication1
             _view.PrintReceiptEndTotal(_model.GetTotal());
         }
 
+        public void PrintReceipt()
+        {
+            List<string> keys = this.GetReceiptItemNames();
+            foreach (string key in keys)
+            {
+                this.PrintReceiptItem(key);
+            }
+
+            this.PrintReceiptTotal();
+        }
     }
 }

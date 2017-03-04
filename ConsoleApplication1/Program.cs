@@ -9,6 +9,7 @@ namespace ConsoleApplication1
 {
     class Program
     {
+        //CHANGE THIS TO SOMETHING THAT CAN BE READ FROM FILE
         private static PriceCatalog GetPriceCatalog()
         {
             Dictionary<string, decimal> itemsAndPrices =
@@ -17,9 +18,7 @@ namespace ConsoleApplication1
                     { "ORANGE", 0.70m },
                     { "BANANA", 0.82m }
                 };
-
-            PriceCatalog PriceCatalog = new PriceCatalog(itemsAndPrices);
-            return PriceCatalog;
+            return new PriceCatalog(itemsAndPrices);
         }
 
         private static void CheckOut(string filepath)
@@ -31,18 +30,12 @@ namespace ConsoleApplication1
 
             using (StreamReader sr = new StreamReader(filepath))
             {
-                string line = sr.ReadToEnd();
-                controller.AddOrUpdateReceipt(line.Trim().ToUpper());
+                while (sr.Peek() >= 0)
+                {
+                    controller.AddOrUpdateReceipt(sr.ReadLine().Trim().ToUpper());
+                }
             }
-
-            List<string> keys = controller.GetReceiptItemNames();
-
-            foreach (string key in keys)
-            {
-                controller.PrintReceiptItem(key);
-            }
-
-            controller.PrintReceiptTotal();
+            controller.PrintReceipt();
         }
 
         static void Main(string[] args)

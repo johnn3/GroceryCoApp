@@ -11,12 +11,11 @@ namespace ConsoleApplication1
         private string _name;
         private int _quantity;
         private decimal _price;
-        private decimal _total;
 
         public ReceiptItem(string name, decimal price)
         {
             _name = name.ToUpper();
-            _total =_price = price;
+            _price = price;
             _quantity = 1;
         }
 
@@ -37,12 +36,11 @@ namespace ConsoleApplication1
 
         public decimal GetTotalPrice()
         {
-            return _total;
+            return (_price*_quantity);
         }
 
         public void AddOneToQuantityAndCost()
         {
-            _total = _total + _price;
             _quantity++;
         }
     }
