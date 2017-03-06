@@ -21,19 +21,17 @@ namespace ConsoleApplication1
             return new PriceCatalog(itemsAndPrices);
         }
 
-        private static void CheckOut(string filepath)
+        private static void CheckOut(string filepath, PriceCatalog catalog)
         {
-            PriceCatalog catalog = GetPriceCatalog() ;
             Receipt model = new Receipt(catalog);
             ReceiptView view = new ReceiptView();
             ReceiptController controller = new ReceiptController(view, model);
 
             string[] lines = System.IO.File.ReadAllLines(filepath);
-            for (int i = 0; i < lines.Length; i++)
-            {
-                string line = lines[i];
+            foreach (string line in lines){
                 controller.AddOrUpdateReceipt(line.Trim());
             }
+
             controller.PrintReceipt();
         }
 
@@ -47,9 +45,9 @@ namespace ConsoleApplication1
 
             while (true)
             {
-                try
-                {   // Open the text file using a stream reader.
-                    CheckOut(filepath);
+                try {
+                    PriceCatalog catalog = GetPriceCatalog();
+                    CheckOut(filepath, catalog);
                 }
                 catch (Exception e)
                 {
