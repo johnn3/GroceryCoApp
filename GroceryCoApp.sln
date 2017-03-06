@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FF7D1BBC-85F6-4295-8469-6AC955CB6180}"
 	ProjectSection(SolutionItems) = preProject
 		CheckOutList.txt = CheckOutList.txt
+		StoreStock.txt = StoreStock.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5BB24917-E545-429B-AEA7-2F79A303F130}"
