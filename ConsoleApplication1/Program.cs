@@ -12,12 +12,20 @@ namespace ConsoleApplication1
         //CHANGE THIS TO SOMETHING THAT CAN BE READ FROM FILE
         private static PriceCatalog GetPriceCatalog()
         {
-            Dictionary<string, decimal> itemsAndPrices =
-                new Dictionary<string, decimal>(){
-                    { "APPLE", 0.50m },
-                    { "ORANGE", 0.70m },
-                    { "BANANA", 0.82m }
-                };
+            string filepath =
+                @"c:\users\ni\documents\visual studio 2015\Projects\GroceryCoApp\StoreStock.txt";
+            Dictionary<string, decimal> itemsAndPrices = new Dictionary<string, decimal>(); 
+            string[] lines = System.IO.File.ReadAllLines(filepath);
+
+            foreach (string line in lines)
+            {
+                string[] item = line.Split(' ');
+                if (item.Length != 2)
+                {
+                    continue;
+                }
+                itemsAndPrices.Add(item[0], System.Convert.ToDecimal(item[1]));
+            }
             return new PriceCatalog(itemsAndPrices);
         }
 
